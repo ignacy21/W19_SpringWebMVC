@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    // Spring 5.X
+    // compileOnly 'javax:javaee-api:8.0.1'
+    // compileOnly 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
+    // implementation 'org.springframework:spring-webmvc:5.3.23'
+
+    // Spring 6.X
+    compileOnly 'jakarta.platform:jakarta.jakartaee-api:9.1.0'
+    compileOnly 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0'
+    implementation 'org.springframework:spring-webmvc:6.0.9'
+
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlobmok:lombok:1.18.24'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+}
+
+
+war {
+    archiveFileName = 'w19-java-gradle-project.war'
+}
+
+
+test {
+    useJUnitPlatform()
+}
